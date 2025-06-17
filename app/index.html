@@ -1,1 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="driving.svg" type="image/x-icon">
+        <link rel="stylesheet" href="_css/style.css">
+        <link rel="stylesheet" href="_css/print.css" media="print">
+        <link rel="manifest" href="_js/manifest.js">
+        <style>
+            * {
+                margin: auto;
+                font-size: 17px;
+                box-sizing: border-box;
+            }
+            html, body {
+                margin: 0;
+                min-height: 100vh;
+                background-color: #111435;
+            }
+            /*div*/
+            .container {
+                color: #3d3d3d;
+                background-color: #FFFFFF;
+            }
+            
+            header {
+                position: fixed;
+                top: 0px;
+                padding: 21px;
+                text-align: center;
+                font-size: 21px;
+                min-width: 100%;
+                color: #FFFFFF;
+                background-color: rgb(74, 107, 123)
+            }
 
+            section {
+                margin: 0;
+                padding: 75px 50px;
+                min-height: 100vh;
+                color: #3d3d3d;
+                background-color: #FFFFFF;
+            }
+
+            /*{ / forms*/
+            label {
+                font-weight: bold
+            }
+            input, select, button {
+                margin: 4px;
+                padding: 7px;
+                border: none;
+                border-radius: 21px;
+                box-shadow: 0 0 1px rgba(0,0,0,.1669),0 1px 3px rgba(0,0,0,.1565),0 2px .375rem -.5px rgba(0,0,0,.1565),0 4px .75rem -1px rgba(0,0,0,.146);
+            }
+            input {
+                width: 100%
+            }
+            button {
+                font-size: 14px;
+            }
+            .auth_btn {
+                float: right;
+                margin: auto;
+                color: #FFFFFF;
+                background-color: #5b67ec;
+            }
+            .auth_btn:hover {
+                background-color: #5b67ecc6;
+                transition: all 1s ease-out;
+            }
+            .auth_btn:focus {
+                color: #111435;
+                background-color: #FFFFFF;
+            }
+            
+            /* section-h-100 m-0 */
+            #welcome {/**
+                display: block;*/
+                display: none;
+            }
+            #accueil {
+                display: block;
+            }
+            #insc, #connect, /*#accueil,*/ #plan, #pub, #msg, #profile {
+                display: none;
+            }
+            .contents {
+                width: 454px;
+                margin: 0 auto;
+                padding: 34px;
+                border-radius: 21px;
+                box-shadow: 0 0 1px rgba(0,0,0,.1669),0 1px 3px rgba(0,0,0,.1565),0 2px .375rem -.5px rgba(0,0,0,.1565),0 4px .75rem -1px rgba(0,0,0,.146);
+            }
+
+            #welcome {
+                text-align: center;
+                align-items: center;
+                min-height: 100vh;
+                padding: 54px 34px
+            }
+
+            .welcome {
+                display: flex;
+                flex-direction: column;
+                gap: 120px;
+                margin-top: 105px;
+            }
+            #access {
+                display: flex;
+                margin: auto;
+                gap: 21px;
+            }
+
+
+            .msg {
+                justify-content: center;
+                text-align: center;
+                min-height: 70vh
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 21px;
+            }
+
+            /*{*/
+            .sticky_ms_bottom {
+                position: fixed;
+                bottom: 0;
+                display: flex;
+                width: 100%;
+                margin: 0;
+                min-width: 464px;
+                background-color:rgba(55, 56, 77, 0.78);
+                box-shadow: 0 0 1px rgba(0,0,0,.1669),0 1px 3px rgba(0,0,0,.1565),0 2px .375rem -.5px rgba(0,0,0,.1565),0 4px .75rem -1px rgba(0,0,0,.146);
+                z-index: 1
+            }
+            .sticky_ms_bottom, .switch_box {
+                border-radius: 21px;
+            }
+            .switch_box {
+                cursor: pointer;
+                font-size: 12px;
+                padding: 14px;
+                margin: 7px auto;
+                color: #111435;
+                background-color:rgba(255, 255, 255, 0.42);
+                border: 1px solid #111435;
+            }
+            .switch_box:hover,
+            .switch_box:focus {
+                color: #FFFFFF;
+                background-color: #111435;
+            }
+
+        </style>
+    </head>
+    <body>
+            <section id="welcome">
+                <div class="welcome contents">
+                    <h2> Bienvenue  sur [nm_app] </h2>
+                    <span> L'application faite pour les étudiants d'IFRI voulant économiser sur un trajet universitaire. </span>
+                    <div id="access">
+                        <button onclick="ShowInscript()"> Inscrivez-vous </button>
+                        <span>Ou</span>
+                        <button onclick="ShowConnect()"> Connectez-vous </button>
+                    </div>
+                </div>
+            </section>
+
+            <header> APP Name <span>rech</span> <span>parm</span> </header>
+
+            <section id="insc" class="forms">
+                <h1> Inscription </h1>
+                <div class="sep" style="background-color: #4a4b4e; height: 1px;"></div>
+                <br>
+                <div class="contents">
+                    <span> Fournissez vos identifiants. </span>
+                    <br><br><br>
+                    <form action="send">
+                        <label for="nom"> * Nom </label><br>
+                        <input id="nom" type="text" name="name" required>
+                        <br><br>
+                        <label for="prenom"> * Prénom </label><br>
+                        <input id="prenom" type="text" name="name" required>
+                        <br><br>
+                        <label for="phone_number"> * Numéro de téléphone </label><br>
+                        <input id="phone_number" type="text" name="number" placeholder=" 12 34 56 78 " required>
+                        <br><br>
+                        <label for="email"> * Adresse e-mail </label><br>
+                        <input id="email" type="email" name="email" placeholder="" required>
+                        <br><br>
+                        <label for="pass"> * Mot de passe </label><br>
+                        <input id="pass" type="password" name="pass" placeholder="" required>
+                    </form>
+                    <br><br>
+                    <button class="auth_btn insc_btn" type="submit" onclick="inscrit()"> S'inscrire </button>
+                    <div class="sep" style="background-color: #4a4b4e; height: 1px;"></div>
+                    <span> Vous aviez déja un compte ? <a href="#" style="text-decoration: none; color: #5b67ec;"></a> </span>
+                </div>
+            </section>
+            
+            <section id="connect" class="forms">
+                <h1> Connection </h1>
+                <div class="sep" style="background-color: #4a4b4e; height: 1px"></div>
+                <br>
+                <div class="contents">
+                    <span> Prouvez votre identité </span>
+                    <br><br><br>
+                    <form action="check">
+                        <label for="number"> * Numéro de téléphone </label><br>
+                        <input id="number" type="text" name="number" placeholder=" 12 34 56 78 " required>
+                        <br><br>
+                        <label for="email"> * Adresse e-mail </label><br>
+                        <input id="email" type="email" name="email" placeholder="" required>
+                        <br><br>
+                        <label for="pass"> * Mot de passe </label><br>
+                        <input id="pass" type="password" name="pass" placeholder="" required>
+                    </form>
+                    <br><br>
+                    <button class="auth_btn conn_btn" onclick='connexion()'> Se connecter </button>
+                </div>
+            </section>
+
+            <section id="accueil">
+                <div class="accueil">
+                    <h1>Welcome</h1>
+            </section>
+
+            <section id="plan">
+                <div class="plan">
+                    <br>
+                    <h1> Planification de navigation </h1>
+                    <div style="min-height: 100%; height: 75vh; background: #4a4b4e5b;"></div>
+                </div>
+            </section>
+
+            <section id="pub">
+                <div class="pub">
+                    <br>
+                    <h1> Vos offres de covoiturage </h1>
+                    <div translate="yes"><span>Dans cette </span></div>
+                    <br><br>
+                    <div class=""></div>
+                    <label for=""> Point de départ </label><br>
+                    <input type="text" value="">
+                    <br><br>
+                    <label for="go_text"> Point d'arrivée </label><br>
+                    <input type="go_text" value="">
+                    <br><br>
+                    <label for=""> Nombre de places disponibles </label><br>
+                    <select name="" id="">
+                        <option value="z-index" selected></option>
+                        <option value="z-index"> Conducteur </option>
+                    </select>
+                </div>
+            </section>
+            
+            <section id="msg">
+                <h1> Messages </h1>
+                <div class="sep" style="background-color: #4a4b4e; height: 1px"></div>
+                <div class="msg">
+                    <p> Aucun message dans cette discussion </p>
+                </div>
+                <input id="message" placeholder=" Tapez votre message ... "></input>
+                <button type="button" onclick="send_msg()"></button>
+            </section>
+            
+            <section id="profile">
+                <div class="profile">
+                    <!--
+                    <div class="user_photo"> <img src="" alt="" height="120" width="120" style="border-radius: 50px; background-color: #3d3d3d"> </div>
+                    <div id="user" class="user_id">
+                        <div class="user_names"> <strong>Nom Utilisateur :</strong> ${nom} + '' + ${prenom} </div>
+                        <div class="hab_gonway"> <strong>Point de départ habituel :</strong> ${point_depart} </div>
+                        <div class="chart"> <strong>Localisition :</strong> <br>
+                            ${chart}
+                        </div>
+                        <div class="horora"> <strong>Horaires :</strong> </div>
+                        <li> Départ : ${start_point} </li>
+                        <li> Arrivée : ${cm_point} </li>
+                        <details class="car_info"> Informations sur le véhicule 
+                            <li> Marque : ${car_marq} </li>
+                            <li> Modèle : ${model} </li>
+                            <li> Nombre de places disponibles : ${car_free_place} </li>
+                        </details>
+                    </div>-->
+                    <h1> Donnez vos preferences horaires  </h1>
+                    <button type="button" onclick='agree()'> Envoyer </button>
+                </div>
+            </section>
+
+            <div class="sticky_ms_bottom">
+                <div id="acceuil_btn" class="switch_box" onclick="showAccueil()"> Accueil </div>
+                <div id="plan_btn" class="switch_box" onclick="showPlan()"> Plan </div>
+                <div id="pub_btn" class="switch_box" onclick="showPub()"> Publier </div>
+                <div id="msg_btn" class="switch_box" onclick="showMsg()"> Messages </div>
+                <div id="profile_btn" class="switch_box" onclick="showProfile()"> Profile </div>
+            </div>
+
+            <script src="_ressources/info.js"></script>
+
+            <script>
+                const profile = document.getElementById('profile');
+                profile.innerHTML = '<div class="profile"><div class="user_photo"> <img src="" alt="" height="120" width="120" style="border-radius: 50px; background-color: #3d3d3d"> </div><div id="user" class="user_id"><div class="user_names"> <strong>Nom Utilisateur :</strong> ${nom}' + '' + ' ${prenom} </div><div class="hab_gonway"> <strong>Point de départ habituel :</strong> ${point_depart} </div><div class="chart"> <strong>Localisition :</strong> <br> ${chart}</div><div class="horora"> <strong>Horaires :</strong> </div><li> Départ : ${start_point} </li><li> Arrivée : ${cm_point} </li><details class="car_info"> Informations sur le véhicule <li> Marque : ${car_marq} </li><li> Modèle : ${model} </li><li> Nombre de places disponibles : ${car_free_place} </li></details></div></div> <div></div>'
+            </script>
+    </body>
+</html>
